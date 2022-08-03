@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace BethanysPieShop.Models
+﻿namespace BethanysPieShop.Models
 {
     public class Pie
     {
@@ -9,8 +7,6 @@ namespace BethanysPieShop.Models
         public string? ShortDescription { get; set; }
         public string? LongDescription { get; set; }
         public string? AllergyInformation { get; set; }
-
-        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
         public string? ImageUrl { get; set; }
         public string? ImageThumbnailUrl { get; set; }
