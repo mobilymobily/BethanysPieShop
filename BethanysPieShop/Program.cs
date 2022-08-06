@@ -23,13 +23,12 @@ builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
 
 builder.Services.AddDbContext<BethanysPieShopDbContext>(options => {
     options.UseSqlServer(
         builder.Configuration["ConnectionStrings:BethanysPieShopDbContextConnection"]);
 });
-
-// builder.Services.AddControllers(); // We don't need since we already used AddControllersWithViews
 
 var app = builder.Build();
 
@@ -43,12 +42,16 @@ app.UseStaticFiles();
 app.UseSession();
 
 //app.MapDefaultControllerRoute();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
-//app.MapControllers(); // we don't need since we used MapControllerRoute
+app.MapBlazorHub();
+
+app.MapFallbackToPage("/app/{*catchall}", "/App/Index");
+
 
 DbInitializer.Seed(app);
 

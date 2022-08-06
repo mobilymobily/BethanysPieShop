@@ -25,8 +25,7 @@
 
         public IEnumerable<Pie> SearchPies(string searchQuery)
         {
-            return AllPies.Where(p => p.Name.Contains(searchQuery));
-
+            throw new NotImplementedException();
         }
     }
 }
