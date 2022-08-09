@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BethanysPieShop.Models
 {
-    public class BethanysPieShopDbContext: IdentityDbContext
+    public class BethanysPieShopDbContext: IdentityDbContext<IdentityUser>
     {
         public BethanysPieShopDbContext(DbContextOptions<BethanysPieShopDbContext> options) : base(options)
         {
